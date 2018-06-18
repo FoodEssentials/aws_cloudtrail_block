@@ -6,12 +6,10 @@ include: "*.view"
 # include all the dashboards
 include: "*.dashboard"
 
-datagroup: aws_athena_cloudtrail_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "1 hour"
-}
-
 explore: cloudtrail_logs {
+  group_label: "AWS Operations"
+  label: "AWS CloudTrail Logs"
+  persist_for: "24 hours"
   join: user_login_facts {
     type: left_outer
     sql_on: ${cloudtrail_logs.user_name} = ${user_login_facts.username} ;;
@@ -24,6 +22,14 @@ explore: cloudtrail_logs {
   }
 }
 
-explore: user_login_facts {}
+explore: user_login_facts {
+  group_label: "AWS Operations"
+  label: "AWS User Login Facts"
+  persist_for: "24 hours"
+}
 
-explore: user_ip_facts {}
+explore: user_ip_facts {
+  group_label: "AWS Operations"
+  label: "AWS User IP Facts"
+  persist_for: "24 hours"
+}
