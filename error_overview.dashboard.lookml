@@ -1,5 +1,5 @@
 - dashboard: error_overivew
-  title: Error Overivew
+  title: "*PRODUCTION* AWS Error Overview"
   layout: newspaper
   elements:
   - name: Top Assumed User Types
@@ -462,8 +462,4 @@
     title: Date
     type: date_filter
     default_value: 48 hours
-    model:
-    explore:
-    field:
-    listens_to_filters: []
     allow_multiple_values: true

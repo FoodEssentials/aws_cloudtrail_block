@@ -1,5 +1,5 @@
 - dashboard: operational_account_activity
-  title: Operational Account Activity
+  title: "*PRODUCTION* AWS Operational Account Activity"
   layout: newspaper
   elements:
   - name: Top AWS Event Errors
@@ -149,8 +149,4 @@
     title: Date
     type: date_filter
     default_value: 48 hours
-    model: aws_athena_cloudtrail
-    explore: cloudtrail_logs
-    field: cloudtrail_logs.eventtime
-    listens_to_filters: []
     allow_multiple_values: true

@@ -1,5 +1,5 @@
 - dashboard: general_operations
-  title: General Operations
+  title: "*PRODUCTION* AWS General Operations"
   layout: newspaper
   elements:
   - name: Top 10 Events
@@ -324,8 +324,4 @@
     title: Date
     type: date_filter
     default_value: 1 years
-    model:
-    explore:
-    field:
-    listens_to_filters: []
     allow_multiple_values: true
