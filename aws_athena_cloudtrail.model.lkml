@@ -6,6 +6,11 @@ include: "*.view"
 # include all the dashboards
 include: "*.dashboard"
 
+datagroup: aws_athena_cloudtrail_default_datagroup {
+  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+  max_cache_age: "1 hour"
+}
+
 explore: cloudtrail_logs {
   join: user_login_facts {
     type: left_outer
