@@ -1,5 +1,5 @@
 view: cloudtrail_logs {
-  sql_table_name: aws_optimizer.cloudtrail_logs ;;
+  sql_table_name: athena_aws_reports.cloudtrail_logs ;;
   suggestions: no
 
   dimension: additionaleventdata {
@@ -44,7 +44,7 @@ view: cloudtrail_logs {
   dimension_group: event_time {
     type: time
 #     hidden: yes
-    timeframes: [minute15, minute30, hour,date,week,month,year,hour_of_day,day_of_week,month_name]
+    timeframes: [raw, minute15, minute30, hour, date, week, month, year, hour_of_day, day_of_week, month_name]
     sql: from_iso8601_timestamp(${TABLE}.eventtime) ;;
   }
   dimension: eventtype {

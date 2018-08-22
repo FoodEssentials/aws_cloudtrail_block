@@ -6,7 +6,7 @@ view: user_login_facts {
       sum(CASE WHEN errorcode = 'AccessDenied' THEN 0 ELSE 1 END) as successful_logins,
       min(eventtime) as first_login,
       max(eventtime) as latest_login
-      from aws_optimizer.cloudtrail_logs
+      from athena_aws_reports.cloudtrail_logs
       where eventname = 'ConsoleLogin'
       GROUP BY 1
        ;;
@@ -89,7 +89,7 @@ view: user_ip_facts {
     sql: SELECT
       useridentity.username,
       count(distinct sourceipaddress) as ip_addresses
-      from aws_optimizer.cloudtrail_logs
+      from athena_aws_reports.cloudtrail_logs
       group by 1
       order by 2 desc
       limit 50

@@ -1,5 +1,5 @@
 - dashboard: ec2_security_group_modifications
-  title: EC2 Security Group Modifications
+  title: "*PRODUCTION* AWS EC2 Security Group Modifications"
   layout: newspaper
   elements:
   - name: Security Group Modifications
@@ -11,7 +11,7 @@
     - cloudtrail_logs.event_name
     - cloudtrail_logs.user_name
     - cloudtrail_logs.sourceipaddress
-    # - cloudtrail_logs.event_time
+    - cloudtrail_logs.event_time_raw
     - cloudtrail_logs.requestparameters
     sorts:
     - cloudtrail_logs.eventname
@@ -82,8 +82,4 @@
     title: Date
     type: date_filter
     default_value: 1 years
-    model: aws_athena_cloudtrail
-    explore: cloudtrail_logs
-    field: cloudtrail_logs.event_date
-    listens_to_filters: []
     allow_multiple_values: true
